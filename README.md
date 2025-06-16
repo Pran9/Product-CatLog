@@ -27,3 +27,19 @@ url : https://product-cat-log.vercel.app/
 5. Configure the Tailwind and demo page
 
 6. Setup sucessfull
+
+
+### Real Project begins
+
+# Satge 2 : Component Header
+ => Navigate to home page {Project name and logo}
+ => Search bar
+ => display cart ✅
+ => toggle day and night
+
+
+1. For icons and animations
+```
+npm install lucide-react framer-motion
+```
+2. 
