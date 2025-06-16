@@ -1,12 +1,24 @@
 "use client"
-import { useState } from "react"
-import {ShoppingCart } from "lucide-react"
+import React, { useState } from "react"
+import {ShoppingCart, Search, ShoppingBag  } from "lucide-react"
+import Link from "next/link"
 
 export default function Header() {
     const [cartCount, setCartCount] = useState(0)
+    const [searchText, setSearchText] = useState("")
 
     const addToCart = () =>{
         setCartCount(cartCount + 1)
+    }
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
+        setSearchText(e.target.value)
+        console.log("user is searchinh for :",e.target.value)
+    }
+
+    const handleSearchSubmit = (e :React.FormEvent) =>{
+        e.preventDefault()
+        console.log("Searching for :", searchText)
     }
 
 
@@ -15,7 +27,26 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4">
 
         <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-blue-600">My Store</h1>
+            <Link href="/" className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"><ShoppingBag className="h-6 w-6 text-blue-600" />
+            <h1 className="text-2xl font-bold text-blue-600">My Store</h1></Link>
+
+            {/* search bar */}
+            <form onSubmit={handleSearchSubmit}>
+                <div className="flex-1 max-w-md mx-8">
+                    <div className="realtive">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                        <input
+                            type="text"
+                            value={searchText}
+                            onChange={handleSearchChange}
+                            placeholder="Search products..."
+                            className="w-full border border-gray-300 pl-10 pr-4 rounded-lg"
+                        />
+                    </div>
+                </div>
+            </form>
+
+
 
             {/* cart section */}
             <div className="flex items-center space-x-">

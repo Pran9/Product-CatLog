@@ -32,8 +32,8 @@ url : https://product-cat-log.vercel.app/
 ### Real Project begins
 
 # Satge 2 : Component Header
- => Navigate to home page {Project name and logo}
- => Search bar
+ => Navigate to home page {Project name and logo} ✅
+ => Search bar ✅
  => display cart ✅
  => toggle day and night
 
