@@ -17,3 +17,9 @@ npm run dev
 ```
 git clone https://github.com/SimpleCyber/Product-CatLog.git
 ```
+
+4. Connecting with the vercel for the continous lookout
+
+```
+url : https://product-cat-log.vercel.app/
+```
