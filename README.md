@@ -23,3 +23,7 @@ git clone https://github.com/SimpleCyber/Product-CatLog.git
 ```
 url : https://product-cat-log.vercel.app/
 ```
+
+5. Configure the Tailwind and demo page
+
+6. Setup sucessfull
