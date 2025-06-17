@@ -1,15 +1,19 @@
-import ProductDetail from "@/components/product-detail"
+import { Metadata } from 'next'
+import ProductDetail from '@/components/product-detail'
 
-interface Props {
+interface ProductPageProps {
   params: {
-    id: string;
-  };
+    id: string
+  }
 }
 
-const ProductPage = async ({ params }: Props) => {
-  const { id } = params;
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  return {
+    title: `Product ${params.id}`,
+    description: 'Product details page',
+  }
+}
 
-  return <ProductDetail productId={id} />;
-};
-
-export default ProductPage;
+export default function ProductPage({ params }: ProductPageProps) {
+  return <ProductDetail productId={params.id} />
+}
