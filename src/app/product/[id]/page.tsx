@@ -1,9 +1,15 @@
 import ProductDetail from "@/components/product-detail"
 
-type Props = {
-  params: { id: string }
+interface Props {
+  params: {
+    id: string;
+  };
 }
 
-export default async function ProductDetailPage({ params }: Props) {
-  return <ProductDetail productId={params.id} />
-}
+const ProductPage = async ({ params }: Props) => {
+  const { id } = params;
+
+  return <ProductDetail productId={id} />;
+};
+
+export default ProductPage;
