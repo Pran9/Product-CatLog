@@ -42,4 +42,9 @@ url : https://product-cat-log.vercel.app/
 ```
 npm install lucide-react framer-motion
 ```
-2. 
+2. Search bar , display cart  with counter
+
+
+# Stage 3 : Rendering the product card
+
+1. basic card stucture
