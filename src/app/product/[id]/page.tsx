@@ -6,6 +6,6 @@ interface ProductDetailPageProps {
   }
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   return <ProductDetail productId={params.id} />
 }
