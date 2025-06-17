@@ -10,7 +10,7 @@ import "./globals.css"
 
 
 export const metadata: Metadata = {
-  title: "Advanced Product Catalog",
+  title: "E-commenrce",
   description: "E-commerce platform with dynamic filtering and real-time updates",
 }
 
