@@ -2,9 +2,11 @@
 
 A modern e-commerce product catalog built with Next.js, Tailwind CSS, and ShadCN UI components. This application features product listings, search functionality, filtering, cart management, and responsive design.
 
-![Home Page](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243436/uploads/Product-catlog-home.jpg.png)
-![Product Details](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243578/uploads/product-callog-details.jpg.png)
-![Shopping Cart](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243601/uploads/product-catlog-addtocart.jpg.png)
+<div align="center">
+  <img src="https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243436/uploads/Product-catlog-home.jpg.png" alt="Home Page" width="30%" />
+  <img src="https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243578/uploads/product-callog-details.jpg.png" alt="Product Details" width="30%" />
+  <img src="https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243601/uploads/product-catlog-addtocart.jpg.png" alt="Shopping Cart" width="30%" />
+</div>
 
 ## Live Demo
 
