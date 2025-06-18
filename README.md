@@ -1,128 +1,159 @@
-# Stage 1: Project setup
+# E-Commerce Product Catalog
 
+A modern e-commerce product catalog built with Next.js, Tailwind CSS, and ShadCN UI components. This application features product listings, search functionality, filtering, cart management, and responsive design.
+
+![Home Page](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243436/uploads/Product-catlog-home.jpg.png)
+![Product Details](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243578/uploads/product-callog-details.jpg.png)
+![Shopping Cart](https://res.cloudinary.com/djpcpmrjd/image/upload/v1750243601/uploads/product-catlog-addtocart.jpg.png)
+
+## Live Demo
+
+[https://product-cat-log.vercel.app](https://product-cat-log.vercel.app)
+
+## Features
+
+- **Product Catalog**: Grid and list view options
+- **Product Details**: Comprehensive product information page
+- **Search**: Real-time product search functionality
+- **Filters**: Category, price range, and rating filters
+- **Shopping Cart**: Persistent cart using local storage
+- **Responsive Design**: Works on all device sizes
+- **Dark/Light Mode**: Toggleable theme
+
+## Technologies Used
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- ShadCN UI Components
+- Framer Motion (Animations)
+- Lucide React (Icons)
+- DummyJSON API (Mock data)
+
+## Project Structure
+
+```bash
+simplecyber-product-catlog/
+├── components/               # Reusable UI components
+│   ├── cart-sidebar.tsx
+│   ├── filter-sidebar.tsx
+│   ├── header.tsx
+│   ├── product-card.tsx
+│   ├── product-catalog.tsx
+│   ├── product-detail.tsx
+│   ├── theme-provider.tsx
+│   └── ui/                  # ShadCN UI components
+├── contexts/                # Global state management
+│   ├── cart-context.tsx
+│   └── filter-context.tsx
+├── hooks/                   # Custom React hooks
+├── lib/                     # Utility functions
+└── src/app/                 # Next.js App Router
+    ├── globals.css
+    ├── layout.tsx
+    ├── page.tsx
+    └── product/[id]/        # Dynamic product pages
 ```
-npx create-next-app@latest my-ecommerce-store
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/SimpleCyber/Product-CatLog.git
+cd Product-CatLog
 ```
 
-1. Creating the Nextjs floder
-2. Setup the files 
-
-
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-3. Link with the github
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```
-git clone https://github.com/SimpleCyber/Product-CatLog.git
-```
+## Setup Configuration
 
-4. Connecting with the vercel for the continous lookout
-
-```
-url : https://product-cat-log.vercel.app/
+### Tailwind CSS
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 ```
 
-5. Configure the Tailwind and demo page
-
+### ShadCN UI Components
+```bash
+npx shadcn@latest init
+npx shadcn@latest add button input badge sheet card slider
 ```
-npm install -D tailwindcss postcss autoprefixer --legacy-peer-deps
-```
-update the tailwind config
-upadate the postcss.config.js
 
-6. Setup sucessfull
-
-
-### Real Project begins
-
-# Satge 2 : Component Header
- => Navigate to home page {Project name and logo} ✅
- => Search bar ✅
- => display cart ✅
- => toggle day and night
-
-
-1. For icons and animations
-```
+### Additional Dependencies
+```bash
 npm install lucide-react framer-motion
 ```
-2. Search bar , display cart  with counter
 
+## Development Process
 
-# Stage 2.1 : Add the custom css (update globals.css)
+**Stage 1: Project Setup**
+- ✅ Next.js project initialization
+- ✅ Tailwind CSS configuration
+- ✅ GitHub repository setup
+- ✅ Vercel deployment
 
-1. add the shadcn components for the ui
-    ```
-     npx shadcn@latest init
-     npx shadcn@latest add button input badge sheet
-    ```
+**Stage 2: Header Component**
+- ✅ Navigation with logo
+- ✅ Search bar functionality
+- ✅ Cart display with counter
+- ✅ Dark/light mode toggle
 
+**Stage 3: Product Catalog**
+- ✅ Product card design
+- ✅ API data fetching
+- ✅ Pagination with load more
+- ✅ Grid/list view options
 
-# Stage 3 : Rendering the product card
+**Stage 4: Product Details**
+- ✅ Dynamic routing [id]
+- ✅ Product information display
+- ✅ Add to cart functionality
+- ✅ Related products section
 
-1. basic card stucture
-2. Filling the details 
-3. Fetiching the card using the context
-4. Adding the pagination using the load more
+**Stage 5: Filtering System**
+- ✅ Category filters
+- ✅ Price range slider
+- ✅ Rating-based sorting
 
-# Stage 4 : Details section for the products
+**Stage 6: Search**
+- ✅ Real-time product search
+- ⏳ Auto-complete (in progress)
 
-1. opening the products directly  => to its specific id only  [id]
-2. display the big image
-3. showcse the other details
-4. add to cart
-5. Show reviews
-6. disply 3 more product card of same category
+**Stage 7: Shopping Cart**
+- ✅ Local storage persistence
+- ✅ Cart sidebar panel
+- ✅ Quantity management
+- ✅ Total calculation
 
-# Stage 5 : filters
+**Stage 8: View Options**
+- ✅ Grid and list layouts
 
-1. filter by category already given , 
-   ```
-   https://dummyjson.com/products/category
-   ```
+## Deployment
 
-   just trimmed to 10
+The application is deployed on Vercel with automatic deployments from the main branch.
 
-2. price range setter by the slider
-3. short the products by the rating ⭐
+## License
 
+This project is open source and available under the MIT License.
 
-# Stage 6 : Search bar
+## Acknowledgments
 
-1. Search by the items name 
-     ❌ Auto complete remaining
-2. Suggestions while writing => this increases the number of api calls
-
-# Stage 7 : Shoping cart
-
-1. Data saved in local storage
-2. on click of the cart render the from the side (right)
-3. display the prducts
-4. increse the number of items 
-5. delete items
-6. total sum
-7. Checkout ❌
-
-
-# Stage 8 : Have the 2 ways to views the product 
-
-1. old : grid
-2. new : list
-   
-
-
-
-# Used the Claude AI : 
-- For better tailwind styling
-- For project structure designs
-- Solving errors
-
-# Refrences 
-- Documentaion Tailwind setup in nextjs
-- Stackoverflow
-- Old codes
-
-# Deployment 
-- Vercel ==> link  : https://product-cat-log.vercel.app
+- DummyJSON for mock product data
+- ShadCN for UI components
+- Claude AI for better tailwind styling and debugging
