@@ -59,9 +59,13 @@ export default function Header() {
               className="hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {theme === "dark" ? (
-                <Sun className="h-5 w-5 text-yellow-500" />
+                <div title="Toggle light mode">
+                  <Sun className="h-5 w-5 text-yellow-500" />
+                </div>
               ) : (
+                <div title="Toggle dark mode" >
                 <Moon className="h-5 w-5 text-slate-600" />
+                </div>
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>

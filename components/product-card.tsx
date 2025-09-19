@@ -164,9 +164,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <Link href={`/product/${product.id}`}>
-          <h3 className="font-semibold text-sm line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            {product.title}
-          </h3>
+          <h3
+  className="font-semibold text-sm whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 group-hover:animate-marquee mt-5 hover:text-blue-600 dark:hover:text-blue-400"
+>
+  {product.title}
+</h3>
+
         </Link>
 
         <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">{product.description}</p>
@@ -179,12 +182,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
 
-          {!isInStock && (
+          {/* {!isInStock && (
             <div className="flex items-center text-red-500 text-xs">
               <AlertCircle className="h-3 w-3 mr-1" />
               {product.availabilityStatus}
             </div>
-          )}
+          )} */}
         </div>
 
         <Button
