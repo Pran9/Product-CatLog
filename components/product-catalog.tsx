@@ -61,10 +61,10 @@ export default function ProductCatalog() {
       const limit = 12
       const skip = (pageNum - 1) * limit
 
-      let url = `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+      let url = `https://dummyjson.com/products?limit=Rs. {limit}&skip=Rs. {skip}`
 
       if (filters.searchQuery) {
-        url = `https://dummyjson.com/products/search?q=${filters.searchQuery}&limit=${limit}&skip=${skip}`
+        url = `https://dummyjson.com/products/search?q=Rs. {filters.searchQuery}&limit=Rs. {limit}&skip=Rs. {skip}`
       }
 
       const response = await fetch(url)
@@ -152,7 +152,7 @@ export default function ProductCatalog() {
             </div>
 
             <div
-              className={`grid gap-6 ${
+              className={`grid gap-6 Rs. {
                 viewMode === "grid" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1"
               }`}
             >

@@ -67,12 +67,12 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://dummyjson.com/products/${productId}`)
+        const response = await fetch(`https://dummyjson.com/products/Rs. {productId}`)
         const data = await response.json()
         setProduct(data)
 
         // Fetch related products from the same category
-        const relatedResponse = await fetch(`https://dummyjson.com/products/category/${data.category}?limit=4`)
+        const relatedResponse = await fetch(`https://dummyjson.com/products/category/Rs. {data.category}?limit=4`)
         const relatedData = await relatedResponse.json()
         setRelatedProducts(relatedData.products.filter((p: Product) => p.id !== data.id))
       } catch (error) {
@@ -111,7 +111,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
 
     toast({
       title: "Added to Cart",
-      description: `${product.title} has been added to your cart.`,
+      description: `Rs. {product.title} has been added to your cart.`,
     })
   }
 
@@ -192,7 +192,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`aspect-square overflow-hidden rounded-lg border-2 transition-all ${
+                    className={`aspect-square overflow-hidden rounded-lg border-2 transition-all Rs. {
                       selectedImage === index
                         ? "border-blue-500 ring-2 ring-blue-200 dark:ring-blue-800"
                         : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
@@ -200,7 +200,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
                   >
                     <Image
                       src={image || "/placeholder.svg"}
-                      alt={`${product.title} ${index + 1}`}
+                      alt={`Rs. {product.title} Rs. {index + 1}`}
                       width={150}
                       height={150}
                       className="h-full w-full object-cover"
@@ -231,7 +231,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-5 w-5 ${
+                    className={`h-5 w-5 Rs. {
                       i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-slate-300"
                     }`}
                   />
@@ -244,10 +244,10 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
 
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <span className="text-3xl font-bold text-blue-600">${product.price}</span>
+                <span className="text-3xl font-bold text-blue-600">Rs. {product.price}</span>
                 {product.discountPercentage > 0 && (
                   <>
-                    <span className="text-lg text-slate-400 line-through">${originalPrice.toFixed(2)}</span>
+                    <span className="text-lg text-slate-400 line-through">Rs. {originalPrice.toFixed(2)}</span>
                     <Badge variant="destructive" className="bg-red-500 hover:bg-red-600">
                       {product.discountPercentage.toFixed(0)}% OFF
                     </Badge>
@@ -378,7 +378,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              className={`h-4 w-4 ${
+                              className={`h-4 w-4 Rs. {
                                 i < review.rating ? "text-yellow-400 fill-current" : "text-slate-300"
                               }`}
                             />

@@ -48,7 +48,7 @@ export default function CartSidebar() {
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-semibold truncate mb-1">{item.title}</h4>
                 <div className="flex items-center space-x-2 mb-3">
-                  <span className="text-lg font-bold text-blue-600">${item.price.toFixed(2)}</span>
+                  <span className="text-lg font-bold text-blue-600">Rs. {item.price.toFixed(2)}</span>
                   {item.discountPercentage && item.discountPercentage > 0 && (
                     <Badge variant="destructive" className="text-xs">
                       -{item.discountPercentage.toFixed(0)}%
@@ -97,7 +97,7 @@ export default function CartSidebar() {
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
             <span>Subtotal ({state.totalItems} items)</span>
-            <span>${state.totalPrice.toFixed(2)}</span>
+            <span>Rs. {state.totalPrice.toFixed(2)}</span>
           </div>
           <div className="flex justify-between text-sm">
             <span>Shipping</span>
@@ -106,7 +106,7 @@ export default function CartSidebar() {
           <Separator />
           <div className="flex justify-between text-lg font-bold">
             <span>Total</span>
-            <span className="text-blue-600">${state.totalPrice.toFixed(2)}</span>
+            <span className="text-blue-600">Rs. {state.totalPrice.toFixed(2)}</span>
           </div>
         </div>
         <Button
