@@ -3,6 +3,7 @@
 import { initializeApp, getApps } from "firebase/app"
 import { getAuth, GoogleAuthProvider } from "firebase/auth"
 import { getDatabase } from "firebase/database"
+import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyB4ZbINhUsGMLq6aKP7IAejuh7CKtVwtbk",
@@ -15,14 +16,17 @@ const firebaseConfig = {
   measurementId: "G-P61MBXJRRY",
 }
 
-// Initialize Firebase only if it hasn't been initialized yet
+// ✅ Initialize Firebase only if not already initialized
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
 
-// Initialize Firebase Authentication and get a reference to the service
+// ✅ Authentication
 export const auth = typeof window !== "undefined" ? getAuth(app) : null
 export const googleProvider = typeof window !== "undefined" ? new GoogleAuthProvider() : null
 
-// Initialize Realtime Database and get a reference to the service
+// ✅ Realtime Database
 export const database = typeof window !== "undefined" ? getDatabase(app) : null
+
+// ✅ Firestore (for cart, products, etc.)
+export const firestore = typeof window !== "undefined" ? getFirestore(app) : null
 
 export default app
