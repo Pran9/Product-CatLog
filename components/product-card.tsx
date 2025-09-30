@@ -100,6 +100,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         thumbnail: product.thumbnail,
         stock: product.stock,
         discountPercentage: product.discountPercentage,
+        quantity: 1, // <-- Add this line
       },
     })
 

@@ -106,6 +106,7 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
         thumbnail: product.thumbnail,
         stock: product.stock,
         discountPercentage: product.discountPercentage,
+        quantity: 1, // <-- Add this line
       },
     })
 
