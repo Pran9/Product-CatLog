@@ -10,6 +10,7 @@ import { useFilters } from "@/contexts/filter-context"
 import { useTheme } from "next-themes"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import CartSidebar from "./cart-sidebar"
+import AuthButton from "./auth-button"
 import { useState, useEffect } from "react"
 
 export default function Header() {
@@ -31,10 +32,12 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between px-4 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center space-x-3">
           <div className="h-10 w-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-lg"><ShoppingBag /></span>
+            <span className="text-white font-bold text-lg">
+              <ShoppingBag />
+            </span>
           </div>
           <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            E-Commerce
+            cartify
           </span>
         </Link>
 
@@ -51,6 +54,8 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-3">
+          <AuthButton />
+
           {mounted && (
             <Button
               variant="ghost"
@@ -59,12 +64,12 @@ export default function Header() {
               className="hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {theme === "dark" ? (
-                <div title="Toggle light mode">
+                <div title=" light mode">
                   <Sun className="h-5 w-5 text-yellow-500" />
                 </div>
               ) : (
-                <div title="Toggle dark mode" >
-                <Moon className="h-5 w-5 text-slate-600" />
+                <div title=" dark mode">
+                  <Moon className="h-5 w-5 text-slate-600" />
                 </div>
               )}
               <span className="sr-only">Toggle theme</span>

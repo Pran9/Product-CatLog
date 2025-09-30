@@ -105,7 +105,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     toast({
       title: "Added to Cart",
-      description: `Rs. {product.title} has been added to your cart.`,
+      description: `${product.title} has been added to your cart.`,
     })
 
     setIsChecking(false)
@@ -120,7 +120,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link href={`/product/Rs. {product.id}`}>
+      <Link href={`/product/${product.id}`}>
         <div className="aspect-square overflow-hidden rounded-t-xl relative">
           <Image
             src={product.thumbnail || "/placeholder.svg"}
@@ -135,14 +135,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             </Badge>
           )}
           <div
-            className={`absolute top-3 right-3 transition-opacity duration-300 Rs. {isHovered ? "opacity-100" : "opacity-0"}`}
+            className={`absolute top-3 right-3 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           >
             <Button variant="secondary" size="icon" className="h-8 w-8 bg-white/80 hover:bg-white">
               <Heart className="h-4 w-4" />
             </Button>
           </div>
           <div
-            className={`absolute inset-x-3 bottom-3 transition-opacity duration-300 Rs. {isHovered ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-x-3 bottom-3 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           >
             <Button variant="secondary" size="sm" className="w-full bg-white/90 hover:bg-white">
               <Eye className="h-4 w-4 mr-2" />
@@ -163,7 +163,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <Link href={`/product/Rs. {product.id}`}>
+        <Link href={`/product/${product.id}`}>
           <h3
   className="font-semibold text-sm whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 group-hover:animate-marquee mt-5 hover:text-blue-600 dark:hover:text-blue-400"
 >
@@ -176,9 +176,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
-            <span className="text-lg font-bold text-blue-600">Rs. {product.price}</span>
+            <span className="text-lg font-bold text-blue-600">${product.price}</span>
             {product.discountPercentage > 0 && (
-              <span className="text-sm text-slate-400 line-through">Rs. {originalPrice.toFixed(2)}</span>
+              <span className="text-sm text-slate-400 line-through">${originalPrice.toFixed(2)}</span>
             )}
           </div>
 

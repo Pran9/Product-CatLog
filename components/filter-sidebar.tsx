@@ -84,7 +84,7 @@ export default function FilterSidebar() {
                   variant="secondary"
                   className="bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
                 >
-                  Rs. {filters.priceRange[0]} - Rs. {filters.priceRange[1]}
+                  ${filters.priceRange[0]} - ${filters.priceRange[1]}
                   <Button
                     variant="ghost"
                     size="sm"
@@ -149,16 +149,16 @@ export default function FilterSidebar() {
           </div>
           <div className="flex items-center justify-between">
             <div className="bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg">
-              <span className="text-sm font-medium">Rs. {filters.priceRange[0]}</span>
+              <span className="text-sm font-medium">${filters.priceRange[0]}</span>
             </div>
             <span className="text-slate-400">to</span>
             <div className="bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-lg">
-              <span className="text-sm font-medium">Rs. {filters.priceRange[1]}</span>
+              <span className="text-sm font-medium">${filters.priceRange[1]}</span>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2">
             <Button variant="outline" size="sm" onClick={() => updateFilter("priceRange", [0, 50])} className="text-xs">
-              Under Rs. 50
+              Under $50
             </Button>
             <Button
               variant="outline"
@@ -166,7 +166,7 @@ export default function FilterSidebar() {
               onClick={() => updateFilter("priceRange", [50, 200])}
               className="text-xs"
             >
-              Rs. 50-Rs. 200
+              $50-$200
             </Button>
             <Button
               variant="outline"
@@ -174,7 +174,7 @@ export default function FilterSidebar() {
               onClick={() => updateFilter("priceRange", [200, 2000])}
               className="text-xs"
             >
-              Over Rs. 200
+              Over $200
             </Button>
           </div>
         </CardContent>
@@ -195,9 +195,9 @@ export default function FilterSidebar() {
           >
             {[0, 1, 2, 3, 4].map((rating) => (
               <div key={rating} className="flex items-center space-x-2 py-1">
-                <RadioGroupItem value={rating.toString()} id={`rating-Rs. {rating}`} />
-                <Label htmlFor={`rating-Rs. {rating}`} className="text-sm flex items-center space-x-1">
-                  <span>{rating === 0 ? "All Ratings" : `Rs. {rating}+ Stars`}</span>
+                <RadioGroupItem value={rating.toString()} id={`rating-${rating}`} />
+                <Label htmlFor={`rating-${rating}`} className="text-sm flex items-center space-x-1">
+                  <span>{rating === 0 ? "All Ratings" : `${rating}+ Stars`}</span>
                   {rating > 0 && (
                     <div className="flex">
                       {[...Array(rating)].map((_, i) => (

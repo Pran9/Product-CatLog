@@ -61,24 +61,32 @@ export default function ProductCatalog() {
       const limit = 12
       const skip = (pageNum - 1) * limit
 
-      let url = `https://dummyjson.com/products?limit=Rs. {limit}&skip=Rs. {skip}`
+      let url = `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
 
       if (filters.searchQuery) {
-        url = `https://dummyjson.com/products/search?q=Rs. {filters.searchQuery}&limit=Rs. {limit}&skip=Rs. {skip}`
+        url = `https://dummyjson.com/products/search?q=${filters.searchQuery}&limit=${limit}&skip=${skip}`
       }
 
       const response = await fetch(url)
       const data = await response.json()
 
-      if (reset) {
-        setProducts(data.products)
-      } else {
-        setProducts((prev) => [...prev, ...data.products])
-      }
+      if (data && data.products && Array.isArray(data.products)) {
+        if (reset) {
+          setProducts(data.products)
+        } else {
+          setProducts((prev) => [...prev, ...data.products])
+        }
 
-      setHasMore(data.skip + data.products.length < data.total)
+        setHasMore(data.skip + data.products.length < data.total)
+      } else {
+        console.error("Invalid data structure received:", data)
+        setProducts([])
+        setHasMore(false)
+      }
     } catch (error) {
       console.error("Error fetching products:", error)
+      setProducts([])
+      setHasMore(false)
     } finally {
       setLoading(false)
     }
@@ -90,6 +98,10 @@ export default function ProductCatalog() {
   }, [filters.searchQuery])
 
   const filteredProducts = useMemo(() => {
+    if (!products || !Array.isArray(products)) {
+      return []
+    }
+
     return products.filter((product) => {
       if (filters.category && product.category !== filters.category) {
         return false
@@ -152,7 +164,7 @@ export default function ProductCatalog() {
             </div>
 
             <div
-              className={`grid gap-6 Rs. {
+              className={`grid gap-6 ${
                 viewMode === "grid" ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1"
               }`}
             >
